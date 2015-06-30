@@ -1,12 +1,11 @@
-from django.shortcuts import get_object_or_404, render
-
-# Create your views here.
-from django.http import HttpResponse
-from django.template import RequestContext, loader
+from django.utils import timezone
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 from django.views import generic
 
 from .models import Transit
 
+# Create your views here.
 
 class IndexView(generic.ListView):
     template_name = 'index.html'
@@ -27,10 +26,13 @@ class TransitsView(generic.ListView):
 
 
 def addTransit(request):
-    Transit.add(
+    t = Transit(
         license_plate=request.POST['license_plate'],
         car_brand=request.POST['license_plate'],
         car_model=request.POST['car_model'],
-        location=request.POST['location'])
+        location=request.POST['location'],
+        transit_date=timezone.now()
+    )
+    t.save()
 
-    return HttpResponseRedirect(reverse('transits'))
+    return HttpResponseRedirect(reverse('index'))
