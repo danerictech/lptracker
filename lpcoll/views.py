@@ -28,7 +28,7 @@ class TransitsView(generic.ListView):
 def addTransit(request):
     t = Transit(
         license_plate=request.POST['license_plate'],
-        car_brand=request.POST['license_plate'],
+        car_brand=request.POST['car_brand'],
         car_model=request.POST['car_model'],
         location=request.POST['location'],
         transit_date=timezone.now()

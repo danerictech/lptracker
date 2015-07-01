@@ -5,13 +5,15 @@
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'stylesheets/main.css' %}">
-    <script src="{% static 'scripts/jquery-1.11.3.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'scripts/3p/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'scripts/3p/angular.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'scripts/main.js' %}" type="text/javascript"></script>
 
     <title>{% block title %}My amazing site{% endblock %}</title>
 
     <meta charset="UTF-8">
 </head>
-<body>
+<body ng-app="transitsApp">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
